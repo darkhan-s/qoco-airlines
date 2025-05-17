@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qoco-Airlines", "src\Qoco-Airlines.csproj", "{BB44DC14-E4DE-462E-B7B6-4549A40D65B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Qoco-Airlines-Test.csproj", "{A8D28561-E4FD-49C8-A148-0549B599DDB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB44DC14-E4DE-462E-B7B6-4549A40D65B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB44DC14-E4DE-462E-B7B6-4549A40D65B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB44DC14-E4DE-462E-B7B6-4549A40D65B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB44DC14-E4DE-462E-B7B6-4549A40D65B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8D28561-E4FD-49C8-A148-0549B599DDB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8D28561-E4FD-49C8-A148-0549B599DDB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8D28561-E4FD-49C8-A148-0549B599DDB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8D28561-E4FD-49C8-A148-0549B599DDB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1FEB2A54-D691-474A-BD67-04C2224E35D9}
+	EndGlobalSection
+EndGlobal

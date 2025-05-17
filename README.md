@@ -17,28 +17,28 @@ This solution has a target framework of .NET 8. The API implements the following
 ---
 
 ## Repository Structure
-
 Qoco-Airlines/
 ├── .gitignore
 ├── Qoco-Airlines.sln
 ├── README.md
 ├── src/
-│ ├── Controllers/
-│ │ └── FlightsController.cs
-│ ├── Data/
-│ │ └── flights.csv 
-│ ├── Models/ 
-│ │ └── Flight.cs
-│ │ └── FlightMap.cs
-│ │ └── Inconsistency.cs
-│ ├── Services/ 
-│ │ └── FlightService.cs
-│ │ └── IFlightService.cs
-│ └── Program.cs 
-│ └── Qoco-Airlines.csproj 
+│   ├── Controllers/
+│   │   └── FlightsController.cs
+│   ├── Data/
+│   │   └── flights.csv 
+│   ├── Models/ 
+│   │   ├── Flight.cs
+│   │   ├── FlightMap.cs
+│   │   └── Inconsistency.cs
+│   ├── Services/ 
+│   │   ├── FlightService.cs
+│   │   └── IFlightService.cs
+│   ├── Program.cs 
+│   └── Qoco-Airlines.csproj 
 └── Tests/
-  └── FlightServiceTests.cs
-  └── Qoco-Airlines-Test.csproj
+    ├── FlightServiceTests.cs
+    └── Qoco-Airlines-Test.csproj
+
 
 ## API Endpoints
 | Method | URL                            | Description                               | Example command                                                                         |

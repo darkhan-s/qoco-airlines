@@ -17,28 +17,33 @@ This solution has a target framework of .NET 8. The API implements the following
 ---
 
 ## Repository Structure
+```
 Qoco-Airlines/
 ├── .gitignore
 ├── Qoco-Airlines.sln
+├── Run.bat
 ├── README.md
 ├── src/
 │   ├── Controllers/
 │   │   └── FlightsController.cs
 │   ├── Data/
-│   │   └── flights.csv 
-│   ├── Models/ 
+│   │   └── flights.csv
+│   ├── Models/
 │   │   ├── Flight.cs
 │   │   ├── FlightMap.cs
 │   │   └── Inconsistency.cs
-│   ├── Services/ 
+│   ├── Services/
 │   │   ├── FlightService.cs
 │   │   └── IFlightService.cs
-│   ├── Program.cs 
-│   └── Qoco-Airlines.csproj 
+│   ├── Program.cs
+│   └── Qoco-Airlines.csproj
 └── Tests/
     ├── FlightServiceTests.cs
     └── Qoco-Airlines-Test.csproj
+```
 
+## Getting started
+To execute the tests and start the app, execute `run.bat`. After tests run successfully and the solution builds, navigate to the API endpoints in your browser as defined below. The API is hosted on port 5000. 
 
 ## API Endpoints
 | Method | URL                            | Description                               | Example command                                                                         |
@@ -46,7 +51,7 @@ Qoco-Airlines/
 | GET    | `/api/flights`                 | Returns all flights as JSON.              | curl -X GET "http://localhost:5000/api/Flights" -H "accept: text/plain"                 |
 | GET    | `/api/flights/inconsistencies` | Returns list of sequence inconsistencies. |	curl -X GET "http://localhost:5000/api/Flights/inconsistencies" -H "accept: text/plain" |
 
-### Example Response
+### Example Response for `/api/flights` 
 
 ```json
 [
@@ -72,3 +77,25 @@ Qoco-Airlines/
   },
   ...
 ]
+```
+
+### Example Response for `/api/flight/inconsistencies` 
+
+```json
+[
+  {
+    "flight": {
+      "id": 997,
+      "registration": "G-DIX",
+      "type": "320",
+      "flightNumber": "AY120",
+      "departureAirport": "HEL",
+      "departureTime": "2024-01-30T17:00:00",
+      "arrivalAirport": "OUL",
+      "arrivalTime": "2024-01-30T18:30:00"
+    },
+    "expectedNextDeparture": "OUL"
+  }
+  ...
+]
+```

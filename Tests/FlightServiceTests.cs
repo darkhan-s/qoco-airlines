@@ -1,4 +1,6 @@
-﻿using Qoco_Airlines.Models;
+﻿using FlightQualityAnalyzer.Controllers;
+using Microsoft.Extensions.Logging;
+using Qoco_Airlines.Models;
 using Qoco_Airlines.Services;
 using Xunit;
 
@@ -10,6 +12,33 @@ namespace Qoco_Airlines_Test
         private static FlightService BuildService(IEnumerable<Flight> flights) =>
             new FlightService(flights);
 
+        #region File fetching tests
+        [Fact]
+        public void CsvFile_ShouldLoadFlightsSuccessfully()
+        {
+            var svc = new FlightService();
+            var flights = svc.GetAllFlights().ToList();
+
+            Assert.NotEmpty(flights);
+
+            Assert.All(flights, f => Assert.False(string.IsNullOrWhiteSpace(f.Registration)));
+        }
+
+        [Fact]
+        public void FlightService_ShouldThrowWhenWrongFilePathProvided()
+        {
+            var wrongPath = "nonexistent/path/flights.csv";
+
+            var ex = Assert.Throws<FileNotFoundException>(() =>
+            {
+                var svc = new FlightService(flightsFilePath: wrongPath);
+            });
+
+            Assert.Contains(wrongPath, ex.Message);
+        }
+        #endregion
+
+        #region Tests for api/flights 
         [Fact]
         public void EmptyFlightList_ShouldReturnNoFlights_AndNoInconsistencies()
         {
@@ -33,7 +62,9 @@ namespace Qoco_Airlines_Test
 
             Assert.Empty(svc.GetSequenceInconsistencies());
         }
+        #endregion
 
+        #region Tests for api/flights/inconsistencies
         [Fact]
         public void TwoFlights_InCorrectSequence_ShouldProduceNoInconsistency()
         {
@@ -85,5 +116,7 @@ namespace Qoco_Airlines_Test
             Assert.Equal(4, incs[0].Flight.Id);
             Assert.Equal("SEA", incs[0].ExpectedNextDeparture);
         }
+
+        #endregion   
     }
 }
